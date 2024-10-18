@@ -19,3 +19,17 @@ LogFormat "%a %l %u %t \"%r\" %>s %b" common <br>
 7) Reiniciar serviço apache
 
 **Bloqueando IP**
+
+1) No arquivo /etc/httpd/conf/httpd.conf
+2) Bloquear um único IP:
+
+&lt;Directory /&gt; <br>
+		Options Indexes FollowSymLinks <br>
+		AllowOverride none <br>
+		&lt;RequireAll&gt;		 <br>
+			Require not ip ip_a_ser_bloqueado <br>
+			Require all granted <br>
+		&lt;/RequireAll&gt; <br>
+&lt;/Directory&gt; <br>
+
+3) Reiniciar serviço apache
