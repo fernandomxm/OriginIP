@@ -1,16 +1,21 @@
-Configuração para logar IP de origem no apache
+**Configuração para logar IP de origem no apache**
 
-- No arquivo /etc/httpd/conf/httpd.conf
-- Habilitar o Módulo mod_remoteip (LoadModule remoteip_module modules/mod_remoteip.so)
-- Configurar o mod_remoteip:
-<IfModule mod_remoteip.c>
-    RemoteIPHeader X-Forwarded-For
-    RemoteIPTrustedProxy 192.168.0.0/16 10.0.0.0/8 172.16.0.0/12
-</IfModule>
-- Ajustar o Formato do Log
-LogFormat "%h %l %u %t \"%r\" %>s %b" common
-Substitua o %h (que loga o IP remoto) por %a (que loga o IP corrigido pelo mod_remoteip)
-LogFormat "%a %l %u %t \"%r\" %>s %b" common
-- cat /var/log/apache/access.log
+1) No arquivo /etc/httpd/conf/httpd.conf
+2) Habilitar o Módulo mod_remoteip (LoadModule remoteip_module modules/mod_remoteip.so)
+3) Configurar o mod_remoteip:
+ 
+#<IfModule mod_remoteip.c> <br>
+    RemoteIPHeader X-Forwarded-For <br>
+    RemoteIPTrustedProxy 192.168.0.0/16 10.0.0.0/8 172.16.0.0/12 <br>
+#</IfModule> <br>
 
-Bloqueando IP
+4) Ajustar o Formato do Log
+   
+LogFormat "%h %l %u %t \"%r\" %>s %b" common <br>
+Substitua o %h (que loga o IP remoto) por %a (que loga o IP corrigido pelo mod_remoteip) <br>
+LogFormat "%a %l %u %t \"%r\" %>s %b" common <br>
+
+6) Validar arquivo de log: /var/log/apache/access.log
+7) Reiniciar serviço apache
+
+**Bloqueando IP**
