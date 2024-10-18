@@ -4,10 +4,10 @@
 2) Habilitar o Módulo mod_remoteip (LoadModule remoteip_module modules/mod_remoteip.so)
 3) Configurar o mod_remoteip:
  
-#<IfModule mod_remoteip.c> <br>
+&lt;IfModule mod_remoteip.c&gt; <br>
     RemoteIPHeader X-Forwarded-For <br>
     RemoteIPTrustedProxy 192.168.0.0/16 10.0.0.0/8 172.16.0.0/12 <br>
-#</IfModule> <br>
+&lt;/IfModule&gt; <br>
 
 4) Ajustar o Formato do Log
    
