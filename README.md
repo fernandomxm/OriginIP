@@ -33,3 +33,9 @@ LogFormat "%a %l %u %t \"%r\" %>s %b" common <br>
 &lt;/Directory&gt; <br>
 
 3) Reiniciar serviço apache
+
+**Validando tráfego de origem e IPs no Windows**
+
+1) No arquivo de log C:\Apache24\conf\access.log
+2) No powershell, digitar: Get-Content .\access.log -Tail 0 -Wait
+3) Ou no Notepad++: Configurações -> Preferências -> Diversos (Autodetectar estado de arquivos)
