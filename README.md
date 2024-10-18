@@ -18,7 +18,7 @@ LogFormat "%a %l %u %t \"%r\" %>s %b" common <br>
 6) Validar arquivo de log: /var/log/apache/access.log
 7) Reiniciar serviço apache
 
-**Bloqueando IP**
+**Bloqueando IP no apache**
 
 1) No arquivo /etc/httpd/conf/httpd.conf
 2) Bloquear um único IP:
